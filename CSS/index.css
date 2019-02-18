@@ -1,0 +1,885 @@
+/* 使用REM响应式布局 */
+html{
+    font-size: 100px;  /* 说明:1REM = 100px 640px设计稿中*/
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+body{
+    position: relative;
+    z-index: -3;
+}
+.loading,.phone,.message,.cube,.swiper{
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* loading区域样式 */
+.loading{
+    background: #000;
+}
+.loading .con{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -2.2rem;
+    height: 1.4rem;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    letter-spacing: .04rem;
+}
+.loading .con h1{
+    height: .75rem;
+    line-height: .75rem;
+    font-size: .5rem;
+    margin-bottom: .2rem;
+}
+.loading .con h2{
+    height: .45rem;
+    line-height: .45rem;
+    font-size: .26rem;
+}
+.loading .progress{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: .85rem 0 0 -2.3rem;
+    width: 4.6rem;
+    height: .3rem;
+    background: #fff;
+    border-radius: .06rem;
+}
+.loading .progress .progressBox{   
+    display: block;
+    height: 100%;
+    width: 0%;
+    border-radius: .06rem;
+
+    background: -webkit-linear-gradient(45deg, #5CB85C 25%, #74C274 25%, #74C274 50%, #5CB85C 50%, #5CB85C 75%, #74C274 75%);
+    background: linear-gradient(45deg, #5CB85C 25%, #74C274 25%, #74C274 50%, #5CB85C 50%, #5CB85C 75%, #74C274 75%);
+    background-size: .3rem .3rem;
+
+    -webkit-animation: loadingMove 1s  linear infinite both;
+    animation: loadingMove 1s linear infinite both;
+
+    -webkit-transition: all 1s linear 0s;
+    transition: all 1s linear 0s;
+}
+/* loading区域样式 */
+
+
+/* phone区域样式 */
+.phone{
+    background: url('../img/zf_phoneBg.jpg') no-repeat;
+    background-size: cover;
+    z-index: -2;
+
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+.phone audio{
+    display: none;
+}
+.phone h2{
+    position: absolute;
+    top: .5rem;
+    left: 50%;
+    margin-left: -1.31rem;
+    width: 2.62rem;
+    height: 1.25rem;
+}
+.phone h2 img{
+    width: 100%;
+    height: 100%;
+}
+.phone .time{
+    width: 100%;
+    height: .3rem;
+    position: absolute;
+    top: 1.85rem;
+    left: 0;
+    line-height: .3rem;
+    text-align: center;
+    color: #fff;
+    font-size: .3rem;
+    letter-spacing: .05rem;
+    display: none;
+}
+.phone .listen{
+    width: 5.2rem;
+    height: 3.6rem;
+    position: absolute;
+    bottom: .3rem;
+    left: 50%;
+    margin-left: -2.6rem;
+    background: url('../img/zf_phoneListen.png') no-repeat;
+    background-size: 100% 100%;
+}
+.phone .listen div{
+    box-sizing: border-box;
+    position: absolute;
+    right: -.06rem;
+    bottom: .48rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    z-index: 5;
+    border-radius: 50%;
+}
+.phone .listen div.move{
+    border:.03rem solid #0f0;
+    -webkit-animation: phoneMove 1s linear infinite both;
+    animation: phoneMove 1s linear infinite both;
+    z-index: -1;
+}
+.phone .details{
+    position: absolute;
+    width: 5.2rem;
+    height: 6.39rem;
+    bottom: .3rem;
+    left: 50%;
+    margin-left: -2.6rem;
+    background: url('../img/zf_phoneDetail.png') no-repeat;
+    background-size: 100% 100%;
+    
+
+    -webkit-transform: translateY(6.89rem);
+    transform: translateY(6.89rem);
+
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+.phone .details .touch{
+    position: absolute;
+    bottom: .28rem;
+    left: 50%;
+    margin-left: -.8rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    z-index: 5;
+}
+/* phone区域样式 */
+
+
+
+/* Message区域样式 */
+.message{
+    background: #EAEAEA;
+}
+.message .messageList{
+    width: 100%;
+    margin-top: .2rem;
+
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.message .messageList li{
+    position: relative;
+    margin-bottom: .4rem;
+    padding: .25rem;
+    max-width: 3.6rem;
+    line-height: .4rem;
+    font-size: .26rem;
+    border-radius: .1rem;   
+    
+    -webkit-transform: translateY(1rem);
+    transform: translateY(1rem);
+    opacity: 0;
+
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.message .messageList li.student{
+    float: left;
+    background: #fff;
+    border: .02rem solid #CACACA;
+    margin-left: 1.25rem;
+}
+.message .messageList li.teacher{
+    background: #A2E45C;
+    float: right;
+    border: .02rem solid #74C274;
+    margin-right: 1.25rem;
+}
+.message .messageList li em{
+    position: absolute;
+    top: .2rem;
+    width: .1rem;
+    height: .2rem;
+    
+}
+.message .messageList li.student em{
+    background: url('../img/zf_messageArrow1.png') no-repeat;
+    background-size: 100% 100%;
+    left: -.1rem;
+}
+.message .messageList li.teacher em{
+    background: url('../img/zf_messageArrow2.png') no-repeat;
+    background-size: 100% 100%;
+    right: -.1rem;
+}
+.message .messageList li img{
+    width: .82rem;
+    height: .82rem;
+    position: absolute;
+    top: 0;
+    border-radius: 50%;
+}
+.message .messageList li.student img{
+    left: -1rem;
+}
+.message .messageList li.teacher img{
+    right: -1rem;
+}
+.message .keyBoard{
+    position: absolute;
+    width: 100%;
+    height: 5.16rem;
+    background: url('../img/zf_messageKeyboard.png') no-repeat;
+    background-size: 100% 100%;
+    left: 0;
+    bottom: -.54rem;
+
+    -webkit-transform: translateY(3.7rem);
+    transform: translateY(3.7rem);
+
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.message .keyBoard .textTip{
+    display: none;
+    position: absolute;
+    top: .35rem;
+    left: .9rem;
+    width: 4rem;
+    height: .4rem;
+    font-size: .25rem;
+    line-height: .4rem;
+}
+.message .keyBoard .submit{
+    display: none;
+    position: absolute;
+    width: 1.47rem;
+    height: .74rem;
+    right: .1rem;
+    bottom: .6rem;
+    z-index: 5;
+    background: url('../img/zf_messageChat.png') no-repeat;
+    background-size: 100% 100%;
+}
+/* Message区域样式 */
+
+
+/* Cube区域样式 */
+.cube{
+
+    /* 实现3D,加一个景深 */
+    perspective: 1000px;
+
+    background: url('../img/zf_cubeBg.jpg') no-repeat;
+    background-size: cover;
+}
+.cube .tips{
+    position: absolute;
+    bottom: .5rem;
+    left: 50%;
+    margin-left:-1.97rem; 
+    width: 3.94rem;
+    height: .44rem;
+    background: url('../img/zf_cubeTip.png') no-repeat;
+    background-size: 100% 100%;
+}
+.cube .cubeBox{
+    width: 5.1rem;
+    height: 5.1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -2.55rem;
+    margin-left: -2.55rem;
+
+    /* 加一个3D的视野效果 */
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    /* 旋转箱子 */
+    -webkit-transform: scale(0.6) rotateX(-35deg) rotateY(45deg);
+    transform: scale(0.6) rotateX(-35deg) rotateY(45deg);
+
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.cube .cubeBox li{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -2.55rem;
+    margin-left: -2.55rem;
+}
+.cube .cubeBox li:nth-child(1){
+    background: url('../img/zf_cube1.png') no-repeat;
+    background-size:100% 100%;
+
+    /* 3D */
+    -webkit-transform: translateZ(2.55rem);
+    transform: translateZ(2.55rem);
+}
+.cube .cubeBox li:nth-child(2){
+    background: url('../img/zf_cube5.png') no-repeat;
+    background-size:100% 100%; 
+
+    /* 3D */
+    -webkit-transform: rotateY(180deg) translateZ(2.55rem);
+    transform: rotateY(180deg) translateZ(2.55rem);
+}
+.cube .cubeBox li:nth-child(3){
+    background: url('../img/zf_cube2.png') no-repeat;
+    background-size:100% 100%; 
+
+    /* 3D */
+    -webkit-transform: rotateY(90deg) translateZ(2.55rem);
+    transform: rotateY(90deg) translateZ(2.55rem);
+}
+.cube .cubeBox li:nth-child(4){
+    background: url('../img/zf_cube4.png') no-repeat;
+    background-size:100% 100%; 
+
+    /* 3D */
+    -webkit-transform: rotateY(-90deg) translateZ(2.55rem);
+    transform: rotateY(-90deg) translateZ(2.55rem);
+}
+.cube .cubeBox li:nth-child(5){
+    background: url('../img/zf_cube3.png') no-repeat;
+    background-size:100% 100%; 
+
+    /* 3D */
+    -webkit-transform: rotateX(-90deg) translateZ(2.55rem);
+    transform: rotateX(-90deg) translateZ(2.55rem);
+}
+.cube .cubeBox li:nth-child(6){
+    background: url('../img/zf_cube6.png') no-repeat;
+    background-size:100% 100%; 
+
+    /* 3D */
+    -webkit-transform: rotateX(90deg) translateZ(2.55rem);
+    transform: rotateX(90deg) translateZ(2.55rem);
+}
+/* Cube区域样式 */
+
+
+/* Swiper区域样式 */
+.swiper-container,.swiper-slide{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    font-family: Microsoft JhengHei;
+}
+.swiper .return{
+    width: .64rem;
+    height: .75rem;
+    position: absolute;
+    top: .2rem;
+    right: .2rem;
+    background: url('../img/zf_return.png') no-repeat;
+    background-size: 100% 100%;
+    z-index: 1001;
+}
+
+/* 课程大纲 */
+.page1{
+    /* background: #fff; */
+}
+.page1 dl{
+    position: absolute;
+    width: 5.4rem;
+    height: 7.2rem;
+    top: 50%;
+    left: 50%;
+    margin: -3.6rem 0 0 -2.7rem;
+
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.page1 dl dt,.page1 dl dd{
+    height: .6rem;
+    line-height: .6rem;
+    background: #8FBB4C;
+}
+.page1 dl dt{
+    font-size: .4rem;
+    color: yellow;
+    text-align: center;
+}
+.page1 dl dd{
+    position: relative;
+    padding-left: .64rem;
+    border-top: .02rem dashed #fff;
+
+}
+.page1 dl dd a,.page1 dl dd em{
+    position: relative;
+    z-index: 1000;
+}
+.page1 dl dd a{
+    display: block;
+    color: #000;
+    font-size: .28rem;
+}
+.page1 dl dd em{
+    position: absolute;
+    left: .15rem;
+    width: .36rem;
+    height: .42rem;
+    top: .09rem;
+    background: lightsalmon;
+    color: #fff;
+    line-height: .42rem;
+    text-align: center;
+    border-radius:50%;
+    font-size: .2rem; 
+}
+/* 课程大纲 */
+
+
+
+/* 课程体系 */
+.page2{
+    background: #FFF9C1;
+}
+.page2 h2{
+    position: absolute;
+    left: 0;
+    top: .8rem;
+    width: 100%;
+    height: .9rem;
+    line-height: .9rem;
+    text-align: center;
+    color:#665c50;
+    font-size: .6rem;
+    font-weight: normal;
+    opacity: 0;
+}
+.page2 .box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5.12rem;
+    height: 5.8rem;
+    margin: -2.4rem 0 0 -2.56rem;
+}
+.page2 .box img{
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -.5rem 0 0 -.5rem;
+    opacity: 0;
+}
+.page2 .box img:nth-child(1){
+    width: 1.32rem;
+    height: 1.7rem;
+    margin: -.85rem 0 0 -.66rem;
+}
+#page2 h2{
+    -webkit-animation: bounceInLeft 1s both;
+    animation: bounceInLeft 1s both;
+}
+#page2 .box img:nth-child(1){
+    -webkit-animation: shake 1s both;
+    animation: shake 1s both;
+}
+#page2 .box img:nth-child(2){
+    -webkit-animation: page2Move1 1s both .5s,page2Shake 1s 1s infinite both;
+    animation: page2Move1 1s both .5s,page2Shake 1s 1s infinite both;
+}
+#page2 .box img:nth-child(3){
+    -webkit-animation: page2Move2 1s both .5s,page2Shake 1s 1s infinite both;
+    animation: page2Move2 1s both .5s,page2Shake 1s 1s infinite both;
+}
+#page2 .box img:nth-child(4){
+    -webkit-animation: page2Move3 1s both .5s,page2Shake 1s 1s infinite both;
+    animation: page2Move3 1s both .5s,page2Shake 1s 1s infinite both;
+}
+#page2 .box img:nth-child(5){
+    -webkit-animation: page2Move4 1s both .5s,page2Shake 1s 1s infinite both;
+    animation: page2Move4 1s both .5s,page2Shake 1s 1s infinite both;
+}
+#page2 .box img:nth-child(6){
+    -webkit-animation: page2Move5 1s both .5s,page2Shake 1s 1s infinite both;
+    animation: page2Move5 1s both .5s,page2Shake 1s 1s infinite both;
+}
+#page2 .box img:nth-child(7){
+    -webkit-animation: page2Move6 1s both .5s,page2Shake 1s 1s infinite both;
+    animation: page2Move6 1s both .5s,page2Shake 1s 1s infinite both;
+}
+/* 课程体系 */
+
+/* 讲师介绍 */
+.page3{
+    background: #E45454;
+}
+.page3 h2{
+    width: 3.82rem;
+    height: 1.41rem;
+    position: absolute;
+    top: .5rem;
+    left: 50%;
+    margin-left: -1.91rem;
+    background: url('../img/zf_teacherTip.png') no-repeat;
+    background-size: 100% 100%;
+
+    opacity: 0;
+}
+.page3 .box{
+    position: absolute;
+    top: 2.5rem;
+    left: 50%;
+    width: 5.7rem;
+    margin-left: -2.85rem;
+}
+.page3 .box li{
+    width: 32%;
+    float: left;
+    height: 3rem;
+    margin: .2rem 0;
+    color: #FFF;
+    font-size: .24rem;
+}
+.page3 .box li:nth-child(3n+2){
+    margin: .2rem 2%;
+}
+.page3 .box li img{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+    opacity: 0;
+}
+.page3 .box li .detail{
+    opacity: 0;
+}
+.page3 .box li .detail p:nth-child(1){
+    line-height: .5rem;
+    text-align: center;
+}
+.page3 .box li .detail p:nth-child(2){
+    line-height: .32rem;
+    text-align: left;
+}
+#page3 h2{
+    -webkit-animation: bounceInLeft 1s both;
+    animation: bounceInLeft 1s both;
+}
+#page3 .box li:nth-child(1) img{
+    -webkit-animation: bounceIn 1s .1s both;
+    animation: bounceIn 1s .1s both;
+}
+#page3 .box li:nth-child(2) img{
+    -webkit-animation: bounceIn 1s .2s both;
+    animation: bounceIn 1s .2s both;
+}
+#page3 .box li:nth-child(3) img{
+    -webkit-animation: bounceIn 1s .3s both;
+    animation: bounceIn 1s .3s both;
+}
+#page3 .box li:nth-child(4) img{
+    -webkit-animation: bounceIn 1s .4s both;
+    animation: bounceIn 1s .4s both;
+}
+#page3 .box li:nth-child(5) img{
+    -webkit-animation: bounceIn 1s .5s both;
+    animation: bounceIn 1s .5s both;
+}
+#page3 .box li:nth-child(6) img{
+    -webkit-animation: bounceIn 1s .6s both;
+    animation: bounceIn 1s .6s both;
+}
+#page3 .box li:nth-child(1) .detail{
+    -webkit-animation: fadeIn 1s .1s both;
+    animation: fadeIn 1s .1s both;
+}
+#page3 .box li:nth-child(2) .detail{
+    -webkit-animation: fadeIn 1s .2s both;
+    animation: fadeIn 1s .2s both;
+}
+#page3 .box li:nth-child(3) .detail{
+    -webkit-animation: fadeIn 1s .3s both;
+    animation: fadeIn 1s .3s both;
+}
+#page3 .box li:nth-child(4) .detail{
+    -webkit-animation: fadeIn 1s .4s both;
+    animation: fadeIn 1s .4s both;
+}
+#page3 .box li:nth-child(5) .detail{
+    -webkit-animation: fadeIn 1s .5s both;
+    animation: fadeIn 1s .5s both;
+}
+#page3 .box li:nth-child(6) .detail{
+    -webkit-animation: fadeIn 1s .6s both;
+    animation: fadeIn 1s .6s both;
+}
+/* 讲师介绍 */
+
+
+/* 就业信息 */
+.page4{
+    background: #FAC471;
+}
+.page4 p{
+    position: absolute;
+    width: 3.92rem;
+    line-height: .6rem;
+    top: .57rem;
+    left: .64rem;
+    font-size: .35rem;
+    opacity: 0;
+}
+.page4 p:nth-child(2){
+    width: 5.5rem;
+    top: 2.2rem;
+    opacity: 0;
+}
+.page4 p span{
+    font-size: .5rem;
+    color: #fff;
+    display: inline-block;
+    margin-left: .1rem;
+}
+.page4 h2{
+    position: absolute;
+    left: 0;
+    top: 3.8rem;
+    height: .75rem;
+    width: 100%;
+    line-height: .75rem;
+    text-align: center;
+    color: lightcoral;
+    font-size: .5rem;
+    opacity: 0;
+}
+.page4 .box{
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+    margin-left: -2.4rem;
+    padding: .15rem;
+    background: skyblue;
+    width: 4.8rem;
+    height: 3.8rem;
+    opacity: 0;
+}
+.page4 .box img{
+    width: 100%;
+    height: 100%;
+}
+#page4 p:nth-child(1){
+    -webkit-animation: bounceInLeft 1s both;
+    animation: bounceInLeft 1s both;
+}
+#page4 p:nth-child(2){
+    -webkit-animation: bounceInRight 1s both;
+    animation: bounceInRight 1s both;
+}
+#page4 h2{
+    -webkit-animation: bounceInDown 1s .5s both;
+    animation: bounceInDown 1s  .5s both;
+}
+#page4 .box{
+    -webkit-animation: fadeIn 1s 1s both;
+    animation: fadeIn 1s  1s both;
+}
+/* 就业信息 */
+
+
+
+/* 风采展示 */
+.page5{
+    background: #FBFFE8;
+}
+.page5 .tip{
+    position: absolute;
+    left: 0;
+    bottom: .5rem;
+    width: 100%;
+    height: 1.4rem;
+}
+.page5 .tip span:nth-child(1){
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    width: 3.76rem;
+    height: .82rem;
+    background: url('../img/zf_styleTip1.png') no-repeat;
+    background-size:100% 100%; 
+    opacity: 0;
+}
+.page5 .tip span:nth-child(2){
+    position: absolute;
+    bottom: 0;
+    right: 1rem;
+    width: 3.22rem;
+    height: .38rem;
+    background: url('../img/zf_styleTip2.png') no-repeat;
+    background-size:100% 100%; 
+    opacity: 0;
+}
+.page5 img{
+    position: absolute;
+    width: 5rem;
+    height: 3.3rem;
+    border: .07rem solid #fff;
+}
+.page5 img:nth-child(1){
+    left: -100%;
+    top: 8%;
+    /* -webkit-transform: rotate(9deg);
+    transform: rotate(9deg); */
+    opacity: 0;
+}
+.page5 img:nth-child(2){
+    left: 300%;
+    top: 25%;
+    /* -webkit-transform: rotate(-9deg);
+    transform: rotate(-9deg); */
+    opacity: 0;
+}
+.page5 img:nth-child(3){
+    left: -100%;
+    top: 44%;
+    /* -webkit-transform: rotate(9deg);
+    transform: rotate(9deg); */
+    opacity: 0;
+}
+#page5 .tip span:nth-child(1){
+    -webkit-animation: bounceInLeft 1s both;
+    animation: bounceInLeft 1s both;
+}
+#page5 .tip span:nth-child(2){
+    -webkit-animation: bounceInRight 1s both;
+    animation: bounceInRight 1s both;
+}
+#page5 img:nth-child(1){
+    -webkit-animation: page5Move1 1s .5s  both;
+    animation: page5Move1 1s .5s both;
+}
+#page5 img:nth-child(2){
+    -webkit-animation: page5Move2 1s 1s  both;
+    animation: page5Move2 1s 1s both;
+}
+#page5 img:nth-child(3){
+    -webkit-animation: page5Move3 1s 1.5s  both;
+    animation: page5Move3  1s 1.5s both;
+}
+/* 风采展示 */
+
+
+
+/* 联系我们 */
+.page6{
+    background: #5975FF;
+}
+.page6 h2{
+    position: absolute;
+    left: 50%;
+    margin-left: -2.5rem;
+    width: 5rem;
+    height: 1rem;
+    padding: .3rem 0;
+    border-bottom: .02rem solid #fff;
+    color: #fff;
+    opacity: 0;
+}
+.page6 h2 span{
+    display: block;
+}
+.page6 h2 span:nth-child(1){
+    height: .64rem;
+    line-height: .64rem;
+    font-size: .44rem;
+}
+.page6 h2 span:nth-child(2){
+    height: .35rem;
+    line-height: .35rem;
+    font-size: .24rem;
+}
+.page6 .contact{
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    margin-left: -2.5rem;
+    width: 5rem;
+}
+.page6 .contact li{
+    width: 100%;
+    height: 1.6rem;
+    margin-bottom: .4rem;
+    opacity: 0;
+}
+.page6 .contact li .icon{
+    width: .98rem;
+    height: .98rem;
+    border-radius: 50%;
+    float: left;
+    margin-top: .31rem;
+}
+.page6 .contact li:nth-child(1) .icon{
+    background: url('../img/zf_concatPhone.png') no-repeat;
+    background-size: 100% 100%;
+}
+.page6 .contact li:nth-child(2) .icon{
+    background: url('../img/zf_concatAddress.png') no-repeat;
+    background-size: 100% 100%;
+}
+.page6 .contact .txtCon{
+    float: right;
+    width: 3.18rem;
+    height: 1.2rem;
+    padding: .2rem;
+    background: lightblue;
+    color: brown;
+    font-size: .24rem;
+}
+.page6 .contact .txtCon span{
+    min-width: .7rem;
+    display: inline-block;
+    font-size: .28rem;
+    vertical-align: bottom;
+}
+.page6 img{
+    width: 5rem;
+    height: 3.6rem;
+    position: absolute;
+    top: 6rem;
+    left: 50%;
+    margin-left: -2.5rem;
+    opacity: 0;
+}
+#page6 h2{
+    -webkit-animation: bounceInDown 1s both;
+    animation: bounceInDown 1s both;
+}
+#page6 .contact li:nth-child(1){
+    -webkit-animation: zoomIn 1s .5s both;
+    animation: zoomIn 1s .5s both;
+}
+#page6 .contact li:nth-child(2){
+    -webkit-animation: zoomIn 1s 1s both;
+    animation: zoomIn 1s 1s both;
+}
+#page6 img{
+    -webkit-animation: bounceInUp 1s 1.5s both;
+    animation: bounceInUp 1s 1.5s both;
+}
+/* 联系我们 */
+
+
+/* Swiper区域样式 */

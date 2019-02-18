@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>H5场景交互型简历</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="keywords" content="简历,可手写原生网站,其他,VUE,NG,NODE,REACT,其他插件" />
+    <meta name="description" content="求职web前端工程师" />
+    <link type="image/x-icon" rel="icon" href="img/icon.png" />
+    <link charset="UTF-8"  type="text/css" href="CSS/reset.min.css" rel="stylesheet" />
+    <link charset="UTF-8"  type="text/css" href="CSS/swiper.min.css" rel="stylesheet" />
+    <link charset="UTF-8"  type="text/css" href="CSS/animate.css" rel="stylesheet" />
+    <link charset="UTF-8"  type="text/css" href="CSS/index.css" rel="stylesheet" />
+
+    <!-- 计算REM -->
+    <script type="text/javascript">
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 640 * 100 +'px';
+    </script>
+</head>
+<body>
+    <!-- LOADING区域 -->
+    <section class="loading" id="loading">
+        <div class="con">
+            <h1>保罗·乔治</h1>
+            <h2>H5场景交互型简历</h2>
+        </div>
+        <div class="progress">
+            <div class="progressBox">
+            </div>
+        </div>
+    </section>
+    <!-- LOADING区域 -->
+
+    <!-- PHONE区域 -->
+    <section class="phone" id="phone">
+        <h2>
+            <img src="img/zf_phoneLogo.png" alt="手机logo">
+        </h2>
+
+        <div class="time">00:00</div>
+
+        <!-- 电话接听区域 -->
+        <div class="listen">
+            <div class="move">
+                <!-- move区域主要是控制电话接听显示的动画 -->
+            </div>
+            <div class="touch">
+                <!-- touch区域主要是进行接听触碰的 -->
+            </div>
+        </div>
+        <!-- 电话接听区域 -->
+
+        <!-- 接听后的详情页面 -->
+        <div class="details">
+            <div class="touch">
+                <!-- 这个区域主要是进行电话的挂断 -->
+            </div>
+        </div>
+        <!-- 接听后的详情页面 -->
+        
+        <!-- 电话铃声以及自我介绍音频 -->
+        <audio src="audio/bell.mp3" preload="none" loop id="listenMusic"></audio>
+        <audio src="audio/say.mp3" preload="none" id="detailsMusic"></audio>
+    </section>
+    <!-- PHONE区域 -->
+
+    <!-- MESSAGE区域 -->
+    <section class="message" id="message">
+        <ul class="messageList">
+            <li class="student">
+                NBA全明星到了.
+                <em></em>
+                <!-- 头像 -->
+                <img src="img/zf_messageStudent.png" alt="学生头像">
+            </li>
+            <li class="teacher">
+                是的,NBA全明星到了,可以看保罗乔治了!
+                <em></em>
+                <!-- 头像 -->
+                <img src="img/zf_messageLogo.png" alt="老师头像">
+            </li>
+            <li class="teacher">
+                保罗乔治是MVP+DPOY吗?
+                <em></em>
+                <!-- 头像 -->
+                <img src="img/zf_messageLogo.png" alt="老师头像">
+            </li>
+            <li class="student">
+                那当时是了,这还用问吗
+                <em></em>
+                <!-- 头像 -->
+                <img src="img/zf_messageStudent.png" alt="学生头像">
+            </li>
+            <li class="teacher">
+                很大概率上乔治是可以拿DPOY的,但是MVP有点困难,毕竟前面有字母哥和登哥.
+                <em></em>
+                <!-- 头像 -->
+                <img src="img/zf_messageLogo.png" alt="老师头像">
+            </li>
+            <li class="teacher">
+                很大概率上乔治是可以拿DPOY的,但是MVP有点困难,毕竟前面有字母哥和登哥.
+                <em></em>
+                <!-- 头像 -->
+                <img src="img/zf_messageLogo.png" alt="老师头像">
+            </li>
+            <li class="teacher">
+                很大概率上乔治是可以拿DPOY的,但是MVP有点困难,毕竟前面有字母哥和登哥.
+                <em></em>
+                <!-- 头像 -->
+                <img src="img/zf_messageLogo.png" alt="老师头像">
+            </li>
+            <li class="student">
+                竟然这么厉害
+                <em></em>
+                <!-- 头像 -->
+                <img src="img/zf_messageStudent.png" alt="学生头像">
+            </li>
+            <li class="student">
+                竟然这么厉害,保罗乔治是MVP,保罗乔治是MVP
+                <em></em>
+                <!-- 头像 -->
+                <img src="img/zf_messageStudent.png" alt="学生头像">
+            </li>
+            <li class="teacher">
+                保罗乔治是MVP,低调
+                <em></em>
+                <!-- 头像 -->
+                <img src="img/zf_messageLogo.png" alt="老师头像">
+            </li>
+            <li class="teacher">
+                保罗乔治是MVP,低调
+                <em></em>
+                <!-- 头像 -->
+                <img src="img/zf_messageLogo.png" alt="老师头像">
+            </li>
+            <li class="teacher">
+                保罗乔治是MVP,低调
+                <em></em>
+                <!-- 头像 -->
+                <img src="img/zf_messageLogo.png" alt="老师头像">
+            </li>
+        </ul>
+        <div class="keyBoard">
+            <span class="textTip"></span>
+            <span class="submit"></span>
+        </div>
+        <audio src="audio/music.mp3" preload="none" loop id="messageMusic"></audio>
+    </section>
+    <!-- MESSAGE区域 -->
+
+    <!-- CUBE区域 -->
+    <section class="cube" id="cube">
+        <ul class="cubeBox">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="tips"></div>
+    </section>
+    <!-- CUBE区域 -->
+
+    <!-- SWIPER区域 -->
+    <section class="swiper" id="swiper">
+        <div class="return">
+            <!-- 右上角返回区域 -->
+        </div>
+
+        <!-- 滑屏区域 -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+
+                <!-- 课程大纲 -->
+                <div class="swiper-slide page1">
+                    <dl id="makisu">
+                        <dt>课程大纲</dt>
+                        <dd><em>01</em><a href="javascript:;">javascript基础核心部分</a></dd>
+                        <dd><em>01</em><a href="javascript:;">javascript基础核心部分</a></dd>
+                        <dd><em>01</em><a href="javascript:;">javascript基础核心部分</a></dd>
+                        <dd><em>01</em><a href="javascript:;">javascript基础核心部分</a></dd>
+                        <dd><em>01</em><a href="javascript:;">javascript基础核心部分</a></dd>
+                        <dd><em>01</em><a href="javascript:;">javascript基础核心部分</a></dd>
+                        <dd><em>01</em><a href="javascript:;">javascript基础核心部分</a></dd>
+                        <dd><em>01</em><a href="javascript:;">javascript基础核心部分</a></dd>
+                        <dd><em>01</em><a href="javascript:;">javascript基础核心部分</a></dd>
+                        <dd><em>01</em><a href="javascript:;">javascript基础核心部分</a></dd>
+                        <dd><em>01</em><a href="javascript:;">javascript基础核心部分</a></dd>
+                    </dl>
+                </div>
+                <!-- 课程大纲 -->
+
+                <!-- 课程体系 -->
+                <div class="swiper-slide page2">
+                    <h2>课程体系</h2>
+                    <div class="box">
+                        <img src="img/zf_course.png" alt="" />
+                        <img src="img/zf_course1.png" alt="" />
+                        <img src="img/zf_course2.png" alt="" />
+                        <img src="img/zf_course3.png" alt="" />
+                        <img src="img/zf_course4.png" alt="" />
+                        <img src="img/zf_course5.png" alt="" />
+                        <img src="img/zf_course6.png" alt="" />
+                    </div>
+                </div>
+                <!-- 课程体系 -->
+
+                <!-- 讲师介绍 -->
+                <div class="swiper-slide page3">
+                    <h2></h2>
+                    <ul class="box">
+                        <li>
+                            <img src="img/zf_teacher1.png" alt="">
+                            <div class="detail">
+                                <p>周啸天</p>
+                                <p>珠峰培训教学总监,曾任腾讯前端高级工程师</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/zf_teacher2.png" alt="">
+                            <div class="detail">
+                                <p>周啸天</p>
+                                <p>珠峰培训教学总监,曾任腾讯前端高级工程师</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/zf_teacher3.jpg" alt="">
+                            <div class="detail">
+                                <p>周啸天</p>
+                                <p>珠峰培训教学总监,曾任腾讯前端高级工程师</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/zf_teacher4.png" alt="">
+                            <div class="detail">
+                                <p>周啸天</p>
+                                <p>珠峰培训教学总监,曾任腾讯前端高级工程师</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/zf_teacher5.png" alt="">
+                            <div class="detail">
+                                <p>周啸天</p>
+                                <p>珠峰培训教学总监,曾任腾讯前端高级工程师</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/zf_teacher6.png" alt="">
+                            <div class="detail">
+                                <p>周啸天</p>
+                                <p>珠峰培训教学总监,曾任腾讯前端高级工程师</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 讲师介绍 -->
+
+                <!-- 就业信息 -->
+                <div class="swiper-slide page4">
+                    <p>
+                        没有招生部门<br>
+                        但学生数量<span>每年翻倍</span>
+                    </p>
+                    <p>
+                        没有招生部门<br>
+                        但学生数量<span>每年翻倍</span>
+                    </p>
+                    <h2>就业信息</h2>
+                    <div class="box">
+                        <img src="img/zf_emploment.png" alt="">
+                    </div>
+                </div>
+                <!-- 就业信息 -->
+    
+                <!-- 风采展示 -->
+                <div class="swiper-slide page5">
+                    <img src="img/zf_style1.jpg" alt="">
+                    <img src="img/zf_style2.jpg" alt="">
+                    <img src="img/zf_style3.jpg" alt="">
+                    <div class="tip">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <!-- 风采展示 -->
+    
+                <!-- 联系我们 -->
+                <div class="swiper-slide page6">
+                    <h2>
+                        <span>联系我们</span>
+                        <span>contact us</span>
+                    </h2>
+                    <ul class="contact">
+                        <li>
+                            <div class="icon"></div>
+                            <div class="txtCon">
+                                <span>QQ:</span>1144709265<br>
+                                <span>QQ:</span>1144709265<br>
+                                <span>QQ:</span>1144709265<br>
+                            </div>
+                        </li>
+                        <li>
+                                <div class="icon"></div>
+                                <div class="txtCon">
+                                    <span>球馆地址:</span>美国俄克拉荷马城奇萨皮克能源球馆<br>
+                                   
+                                </div>
+                            </li>
+                    </ul>
+                    <img src="img/zf_concatInfo.png" alt="">
+                </div>
+                <!-- 联系我们 -->
+
+            </div>
+        </div>
+        <!-- 滑屏区域 -->
+
+    </section>
+    <!-- SWIPER区域 -->
+
+    <script src="JS/zepto.min.js" charset="utf-8" type="text/javascript" ></script>
+    <script src="JS/swiper.min.js" charset="utf-8" type="text/javascript" ></script>
+    <script src="JS/makisu.min.js" charset="utf-8" type="text/javascript" ></script>
+    <script src="JS/index.js" charset="utf-8" type="text/javascript" ></script>
+</body>
+</html>
